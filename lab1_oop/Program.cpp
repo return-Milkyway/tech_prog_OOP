@@ -33,6 +33,7 @@ container * container::Clear( ){
 bool matr::Compare(matr *other) {
 	return this->Sum() < other->Sum();
 }
+
 void container::Sort(){
  	 container *p;
 	p = this->next;
@@ -52,8 +53,8 @@ void container::Sort(){
 		}
 	  }
  }
-  container * container::Swap( container *lst1,  container *lst2,  container *head)
-{
+
+container * container::Swap( container *lst1,  container *lst2,  container *head){
   // Возвращает новый корень списка
   struct container *prev1, *prev2, *next1, *next2;
   prev1 = head;
@@ -131,7 +132,7 @@ void square::Out( ofstream &ofst){
 };
  
 void diagol::Out( ofstream &ofst) {
-ofst << "It is Diagol Matrix: len = " << this->y
+	ofst << "It is Diagol Matrix: len = " << this->y
 	<< ", matr: = " <<endl;
 	for (int count=0;count<this->y;count++){
 		for (int count2=0;count2<this->y;count2++){
@@ -164,7 +165,7 @@ void down_triangle::Out( ofstream &ofst) {
 	}
 };
  
- matr* matr::In(ifstream &ifst){
+matr* matr::In(ifstream &ifst){
  	matr *sp;
  	int k;
  	ifst >> k;
@@ -257,7 +258,8 @@ int square::Sum() {
 		}
 	}
 	return sum;
-} 	
+}
+
 int diagol::Sum() {
 	int sum=0;
 	for (int count=0;count<this->y;count++){
@@ -269,7 +271,6 @@ int diagol::Sum() {
 	}
 	return sum;
 }
-
 
 void container::Out_Sum(ofstream &ofst){
 	container *p;
@@ -293,6 +294,36 @@ void container::Out_Sum(ofstream &ofst){
 }
 
 
+void matr::Out_square(ofstream &ofst){
+	ofst << endl;	
+}
+void square::Out_square(ofstream &ofst){
+	this->Out(ofst);
+}
 
+void container::Out_square(ofstream &ofst){ 
+	container p;
+	container* tmp;
+	p = *this;
+	int num=0;
+	do {
+		num=num+1;
+		p = *p.next; 
+		tmp=p.next;
+	} while (p.next != this->next); 
+	ofst<<"Container contains " << num -1	<< " elements." << endl;
+	ofst<<"Only square" <<  endl;
+		if(this->next==this){
+		ofst<<"none"<<endl;
+		return;
+	}
+	p = *this->next;
+	do {
+		matr *s=p.cont;
+	    s->Out_square(ofst);
+		container *tmp;
+		tmp=p.next;	    
+	    p = *p.next; 
+	} while (p.next != this->next); 
+};
 
- 	

@@ -10,6 +10,7 @@ using namespace std;
 		virtual void Out( ofstream &ofst)=0;
 		virtual int Sum()=0;
 		bool Compare(matr *other);
+		virtual void Out_square(ofstream &ofst);
 };
  
 class square: public matr{
@@ -19,6 +20,8 @@ class square: public matr{
 		void InData( ifstream &ifst);
 		void Out(ofstream &ofst);
 		int Sum();	 
+		void Out(ofstream &ofst);	 
+		void Out_square(ofstream &ofst);
 		square(){};
 };
 
@@ -57,5 +60,6 @@ class down_triangle: public matr{
 		void Out_Sum(ofstream &ofst);
 		void Sort();
 		container * Swap( container *lst1, container *lst2,  container *head);
+		void Out_square(ofstream &ofst);
 		~container(){}
 };
