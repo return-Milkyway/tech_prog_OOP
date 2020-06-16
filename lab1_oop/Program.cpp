@@ -104,15 +104,15 @@ ofst << "It is Diagol Matrix: len = " << this->y
  
 void diagol::InData( ifstream &ifst) {
 	//char str[20];
- 	ifst.get();
- 	ifst>>this->y;
+	//ifst.get();
+	ifst>>this->y;
  	this->x=new int*;
- for (int count=0;count<this->y;count++){
- 	this->x[count]=new int[this->y];
- }
- for (int count=0;count<this->y;count++){
- 	ifst>>	this->x[count][count];
-}
+	for (int count=0;count<this->y;count++){
+	 	this->x[count]=new int[this->y];
+ 	}
+	for (int count=0;count<this->y;count++){
+		ifst>>this->x[count][count];
+	}
 }
  
 void square::InData( ifstream &ifst){
@@ -151,4 +151,51 @@ container* container::In(ifstream &ifst){
 	}
 	return(last);
 }
+ 	
+int square::Sum() {
+	int sum=0;
+	for (int count=0;count<this->b;count++){
+		for (int count2=0;count2<this->b;count2++){
+			sum=sum+this->a[count][count2];
+		}
+	}
+	return sum;
+} 	
+int diagol::Sum() {
+	int sum=0;
+	for (int count=0;count<this->y;count++){
+		for (int count2=0;count2<this->y;count2++){
+			if (count==count2){
+			sum=sum+this->x[count][count];
+			}
+		}
+	}
+	return sum;
+}
+
+
+void container::Out_Sum(ofstream &ofst){
+	container *p;
+	p=this;
+	int num=0;
+	  do {
+	    num=num+1;
+	    p = p->next; 
+	  } while (p != this); 
+	  ofst<<"Container contains " << num-1 	<< " elements." << endl;
+  	if(this->next==this){
+		return;
+	}
+  	p = this->next;
+	  do {
+	    matr *s=p->cont;
+	    s->Out(ofst);
+	    ofst<<"Sum_matr = " << s->Sum()  << endl;
+	    p = p->next; 
+	  } while (p != this); 
+}
+
+
+
+
  	
