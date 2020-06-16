@@ -305,8 +305,8 @@ int down_triangle::Sum() {
 	for (int j=1;j<(this->y);j++) {
 		len=len+(this->y -j);		
 	}
-	this->y=(this->y)*(this->y) -len;
-	for (int count=0;count<this->y;count++){
+	len=(this->y)*(this->y) -len;
+	for (int count=0;count<len;count++){
 		sum=sum+this->x[count];
 	}
 	return sum;
