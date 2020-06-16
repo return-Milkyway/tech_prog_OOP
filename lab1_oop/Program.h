@@ -31,6 +31,15 @@ class diagol: public matr{
 		int Sum();	 
 		diagol(){}
 };
+
+class down_triangle: public matr{
+	int* x;
+	int y;
+	public:
+	 	void InData( ifstream &ifst);
+		void Out(ofstream &ofst);	 
+		down_triangle(){}
+};
   	
  class container{
  	matr *cont;

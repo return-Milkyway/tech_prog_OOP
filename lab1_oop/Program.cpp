@@ -145,6 +145,24 @@ ofst << "It is Diagol Matrix: len = " << this->y
 		ofst<<endl;
 	}
 };
+
+void down_triangle::Out( ofstream &ofst) {
+	ofst << "It is Down Triangle Matrix: len = " << this->y
+	<< ", matr: = " <<endl;
+	int i=0;
+	for (int count=0;count<this->y;count++){
+		for (int count2=0;count2<this->y;count2++){
+			if (count<count2){
+				ofst<<"0 ";
+			}
+			else{
+			ofst<<this->x[i]<<" ";
+			i=i+1;
+			}
+		}
+		ofst<<endl;
+	}
+};
  
  matr* matr::In(ifstream &ifst){
  	matr *sp;
@@ -156,6 +174,9 @@ ofst << "It is Diagol Matrix: len = " << this->y
  			break;
  		case 2:
  			sp = new diagol;
+ 			break;
+ 		case 3:
+ 			sp = new down_triangle;
  			break;
  		default:
  		return 0;
@@ -189,6 +210,20 @@ void square::InData( ifstream &ifst){
  		for (int count2=0;count2<this->b;count2++){
  		ifst>>	this->a[count][count2];
  	}
+ 	}
+}
+
+void down_triangle::InData( ifstream &ifst){
+	ifst.get();
+	ifst>>this->y;
+ 	this->x=new int;
+ 	int len=0;
+ 	for (int j=1;j<(this->y);j++) {
+		len=len+(this->y -j);		
+	}
+ 	len=(this->y*this->y)-len;
+	for (int count=0;count<len;count++){
+ 		ifst>>	this->x[count];
  	}
 }
 
