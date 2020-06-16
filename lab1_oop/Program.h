@@ -4,15 +4,18 @@
 using namespace std;
  
  class matr {
+ 	enum var_print{POSTROCHNO,POSTOLBZAM,ODNOMERNO,INCORRECT};//1,2,3
+	var_print variant;
 	public:
 		static matr* In(ifstream &ifst);
 		virtual void InData(ifstream &ifst)=0;
 		virtual void Out( ofstream &ofst)=0;
+	
 };
  
 class square: public matr{
 	int b;
-	int** a;;
+	int** a;
 	public:
 		void InData( ifstream &ifst);
 		void Out(ofstream &ofst);	 

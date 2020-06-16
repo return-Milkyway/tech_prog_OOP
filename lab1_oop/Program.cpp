@@ -32,9 +32,10 @@ container * container::Clear( ){
    
    
 void container::Out(ofstream &ofst){ 
-
 	container p;
 	container* tmp;
+	
+	
 	p = *this;
 	int num=0;
 	do {
@@ -66,6 +67,7 @@ void square::Out( ofstream &ofst){
 		}
 		ofst<<endl;
 	}
+	matr::Out(ofst);
 };
  
 void diagol::Out( ofstream &ofst) {
@@ -82,6 +84,7 @@ ofst << "It is Diagol Matrix: len = " << this->y
 		}
 		ofst<<endl;
 	}
+	matr::Out(ofst);
 };
  
  matr* matr::In(ifstream &ifst){
@@ -99,20 +102,24 @@ ofst << "It is Diagol Matrix: len = " << this->y
  		return 0;
  	}
  	sp->InData(ifst);
+ 	
  	return	sp;
  }
  
 void diagol::InData( ifstream &ifst) {
 	//char str[20];
  	ifst.get();
- 	ifst>>this->y;
+ 	ifst>>(this->y);
  	this->x=new int*;
- for (int count=0;count<this->y;count++){
- 	this->x[count]=new int[this->y];
- }
- for (int count=0;count<this->y;count++){
- 	ifst>>	this->x[count][count];
-}
+	for (int count=0;count<this->y;count++){
+		this->x[count]=new int[this->y];
+	}
+	for (int count=0;count<this->y;count++){
+		ifst>>	this->x[count][count];
+	}
+//	int t;
+	//ifst>>t;
+	matr::InData(ifst);
 }
  
 void square::InData( ifstream &ifst){
@@ -125,9 +132,10 @@ void square::InData( ifstream &ifst){
 	for (int count=0;count<this->b;count++){
  		//p.a[count]=new int[p.b];
  		for (int count2=0;count2<this->b;count2++){
- 		ifst>>	this->a[count][count2];
+ 			ifst>>	this->a[count][count2];
+ 		}
  	}
- 	}
+ 	matr::InData(ifst);
 }
 
 container* container::In(ifstream &ifst){
@@ -151,4 +159,38 @@ container* container::In(ifstream &ifst){
 	}
 	return(last);
 }
- 	
+
+void matr::InData(ifstream &ifst){
+	int t=0;
+	//ifst.get();
+	//	ifst.get();
+	ifst >> t;
+ 	switch(t) {
+ 		case 1:	
+		 	this->variant=matr::var_print::POSTROCHNO;
+		 	return ;
+		case 2:	
+		 	this->variant=matr::var_print::POSTOLBZAM;
+			return ;	
+		case 3:	
+			this->variant=matr::var_print::ODNOMERNO;
+			 return ;	
+		default:
+ 			this->variant=matr::var_print::INCORRECT;
+ 			return ;				
+	}
+}
+
+void matr::Out(ofstream &ofst){
+	if (this->variant == 0)
+        ofst << "Print need POSTROCHNO"<<endl;
+    else if (this->variant == 1)
+         ofst << "Print need POSTOLBZAM"<<endl;
+    else if (this->variant == 2)
+         ofst << "Print need ODNOMERNO"<<endl;
+    else 
+         ofst << "Incorrect variant of print"<<endl;
+}
+
+
+
