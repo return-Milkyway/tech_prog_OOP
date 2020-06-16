@@ -8,6 +8,7 @@ using namespace std;
 		static matr* In(ifstream &ifst);
 		virtual void InData(ifstream &ifst)=0;
 		virtual void Out( ofstream &ofst)=0;
+		virtual void Out_square(ofstream &ofst);
 };
  
 class square: public matr{
@@ -16,6 +17,7 @@ class square: public matr{
 	public:
 		void InData( ifstream &ifst);
 		void Out(ofstream &ofst);	 
+		void Out_square(ofstream &ofst);
 		square(){};
 };
 
@@ -24,7 +26,8 @@ class diagol: public matr{
 	int y;
 	public:
 	 	void InData( ifstream &ifst);
-		void Out(ofstream &ofst);	 
+		void Out(ofstream &ofst);
+		//void Out_square(ofstream &ofst);	 
 		diagol(){}
 };
   	
@@ -41,5 +44,6 @@ class diagol: public matr{
 		container *  Init();
 		container   *Init2(matr  *a);
 		container * Clear();
+		void Out_square(ofstream &ofst);
 		~container(){}
 };

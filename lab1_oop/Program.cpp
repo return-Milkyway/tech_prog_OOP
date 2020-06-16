@@ -152,3 +152,36 @@ container* container::In(ifstream &ifst){
 	return(last);
 }
  	
+void matr::Out_square(ofstream &ofst){
+	ofst << endl;	
+}
+void square::Out_square(ofstream &ofst){
+	this->Out(ofst);
+}
+
+void container::Out_square(ofstream &ofst){ 
+	container p;
+	container* tmp;
+	p = *this;
+	int num=0;
+	do {
+		num=num+1;
+		p = *p.next; 
+		tmp=p.next;
+	} while (p.next != this->next); 
+	ofst<<"Container contains " << num -1	<< " elements." << endl;
+	ofst<<"Only square" <<  endl;
+		if(this->next==this){
+		ofst<<"none"<<endl;
+		return;
+	}
+	p = *this->next;
+	do {
+		matr *s=p.cont;
+	    s->Out_square(ofst);
+		container *tmp;
+		tmp=p.next;	    
+	    p = *p.next; 
+	} while (p.next != this->next); 
+};
+
