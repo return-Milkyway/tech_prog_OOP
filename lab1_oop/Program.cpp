@@ -29,7 +29,69 @@ container * container::Clear( ){
 		p = p->next; // переход к следующему узлу
 	} while (p != this); // условие окончания обхода
 };
-   
+
+bool matr::Compare(matr *other) {
+	return this->Sum() < other->Sum();
+}
+void container::Sort(){
+ 	 container *p;
+	p = this->next;
+	int num=0;
+	do {
+	    num=num+1;
+	    p = p->next; 
+	 } while (p != this); 
+	 p = this->next; 
+	for (int count3=0;count3<num;count3++){
+		for (int count2=0;count2<num;count2++){
+			p=this->next;
+			for(int tmp=0;tmp<count2-1;tmp++){p=p->next;}			
+			if(p->cont->Compare( p->next->cont)){
+	 			this->Swap(p,p->next,this);
+	 		}	
+		}
+	  }
+ }
+  container * container::Swap( container *lst1,  container *lst2,  container *head)
+{
+  // Возвращает новый корень списка
+  struct container *prev1, *prev2, *next1, *next2;
+  prev1 = head;
+  prev2 = head;
+  while (prev1->next != lst1) // поиск узла предшествующего lst1
+    prev1 = prev1->next;
+  while (prev2->next != lst2) // поиск узла предшествующего lst2
+    prev2 = prev2->next;
+  next1 = lst1->next; // узел следующий за lst1
+  next2 = lst2->next; // узел следующий за lst2
+  if (lst2 == next1)
+  {	
+    // обмениваются соседние узлы
+    lst2->next = lst1;
+    lst1->next = next2;
+    prev1->next = lst2;
+  }
+  else if (lst1 == next2)
+  {
+    // обмениваются соседние узлы
+    lst1->next = lst2;
+    lst2->next = next1;
+    prev2->next = lst2;
+  }
+  else
+  {
+    // обмениваются отстоящие узлы
+    prev1->next = lst2;
+    lst2->next = next1;
+    prev2->next = lst1;
+    lst1->next = next2;
+  }
+  if (lst1 == head)
+    return(lst2);
+  if (lst2 == head)
+    return(lst1);
+  return(head);
+}  
    
 void container::Out(ofstream &ofst){ 
 
@@ -104,15 +166,15 @@ ofst << "It is Diagol Matrix: len = " << this->y
  
 void diagol::InData( ifstream &ifst) {
 	//char str[20];
- 	ifst.get();
- 	ifst>>this->y;
+	//ifst.get();
+	ifst>>this->y;
  	this->x=new int*;
- for (int count=0;count<this->y;count++){
- 	this->x[count]=new int[this->y];
- }
- for (int count=0;count<this->y;count++){
- 	ifst>>	this->x[count][count];
-}
+	for (int count=0;count<this->y;count++){
+	 	this->x[count]=new int[this->y];
+ 	}
+	for (int count=0;count<this->y;count++){
+		ifst>>this->x[count][count];
+	}
 }
  
 void square::InData( ifstream &ifst){
@@ -151,4 +213,51 @@ container* container::In(ifstream &ifst){
 	}
 	return(last);
 }
+ 	
+int square::Sum() {
+	int sum=0;
+	for (int count=0;count<this->b;count++){
+		for (int count2=0;count2<this->b;count2++){
+			sum=sum+this->a[count][count2];
+		}
+	}
+	return sum;
+} 	
+int diagol::Sum() {
+	int sum=0;
+	for (int count=0;count<this->y;count++){
+		for (int count2=0;count2<this->y;count2++){
+			if (count==count2){
+			sum=sum+this->x[count][count];
+			}
+		}
+	}
+	return sum;
+}
+
+
+void container::Out_Sum(ofstream &ofst){
+	container *p;
+	p=this;
+	int num=0;
+	  do {
+	    num=num+1;
+	    p = p->next; 
+	  } while (p != this); 
+	  ofst<<"Container contains " << num-1 	<< " elements." << endl;
+  	if(this->next==this){
+		return;
+	}
+  	p = this->next;
+	  do {
+	    matr *s=p->cont;
+	    s->Out(ofst);
+	    ofst<<"Sum_matr = " << s->Sum()  << endl;
+	    p = p->next; 
+	  } while (p != this); 
+}
+
+
+
+
  	

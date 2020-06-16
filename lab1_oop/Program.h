@@ -8,6 +8,8 @@ using namespace std;
 		static matr* In(ifstream &ifst);
 		virtual void InData(ifstream &ifst)=0;
 		virtual void Out( ofstream &ofst)=0;
+		virtual int Sum()=0;
+		bool Compare(matr *other);
 };
  
 class square: public matr{
@@ -15,7 +17,8 @@ class square: public matr{
 	int** a;;
 	public:
 		void InData( ifstream &ifst);
-		void Out(ofstream &ofst);	 
+		void Out(ofstream &ofst);
+		int Sum();	 
 		square(){};
 };
 
@@ -24,7 +27,8 @@ class diagol: public matr{
 	int y;
 	public:
 	 	void InData( ifstream &ifst);
-		void Out(ofstream &ofst);	 
+		void Out(ofstream &ofst);
+		int Sum();	 
 		diagol(){}
 };
   	
@@ -41,5 +45,8 @@ class diagol: public matr{
 		container *  Init();
 		container   *Init2(matr  *a);
 		container * Clear();
+		void Out_Sum(ofstream &ofst);
+		void Sort();
+		container * Swap( container *lst1, container *lst2,  container *head);
 		~container(){}
 };
