@@ -1,0 +1,21 @@
+Filled container. 
+Container contains 2 elements.
+It is Diagol Matrix: len = 3, matr: = 
+1 0 0 
+0 2 0 
+0 0 3 
+Print need POSTOLBZAM
+Sum_matr = 6
+It is Diagol Matrix: len = 2, matr: = 
+2 0 
+0 1 
+Print need POSTROCHNO
+Sum_matr = 3
+
+Container contains 2 elements.
+Only square
+
+
+Empty container. 
+Container contains 0 elements.
+none
