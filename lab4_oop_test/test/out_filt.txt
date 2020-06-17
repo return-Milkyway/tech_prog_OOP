@@ -1,0 +1,6 @@
+Container contains 3 elements.
+Only square
+It is Square matrix: len = 2, matr = 
+1 2 
+3 4 
+Print need POSTOLBZAM

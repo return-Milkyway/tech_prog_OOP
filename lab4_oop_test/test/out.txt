@@ -1,0 +1,12 @@
+Container contains 2 elements.
+It is Diagol Matrix: len = 3, matr: = 
+4 0 0 
+0 1 0 
+0 0 3 
+Print need POSTROCHNO
+Sum_matr = 8
+It is Diagol Matrix: len = 2, matr: = 
+1 0 
+0 2 
+Print need ODNOMERNO
+Sum_matr = 3
