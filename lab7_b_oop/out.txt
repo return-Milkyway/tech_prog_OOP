@@ -1,0 +1,111 @@
+Filled container. 
+Multimethod.
+Diagol and Diagol
+It is Diagol Matrix: len = 2, matr: = 
+2 0 
+0 1 
+Print need POSTROCHNO
+It is Diagol Matrix: len = 2, matr: = 
+2 0 
+0 1 
+Print need POSTROCHNO
+
+Diagol and Diagol
+It is Diagol Matrix: len = 2, matr: = 
+2 0 
+0 1 
+Print need POSTROCHNO
+It is Diagol Matrix: len = 3, matr: = 
+1 0 0 
+0 2 0 
+0 0 3 
+Print need POSTOLBZAM
+
+Diagol and Square
+It is Diagol Matrix: len = 2, matr: = 
+2 0 
+0 1 
+Print need POSTROCHNO
+It is Square matrix: len = 2, matr = 
+1 2 
+3 4 
+Incorrect variant of print
+
+Diagol and  Down triangle
+It is Diagol Matrix: len = 2, matr: = 
+2 0 
+0 1 
+Print need POSTROCHNO
+It is Down Triangle Matrix: len = 2, matr: = 
+1 0 
+2 3 
+Print need ODNOMERNO
+
+Diagol and Diagol
+It is Diagol Matrix: len = 3, matr: = 
+1 0 0 
+0 2 0 
+0 0 3 
+Print need POSTOLBZAM
+It is Diagol Matrix: len = 3, matr: = 
+1 0 0 
+0 2 0 
+0 0 3 
+Print need POSTOLBZAM
+
+Diagol and Square
+It is Diagol Matrix: len = 3, matr: = 
+1 0 0 
+0 2 0 
+0 0 3 
+Print need POSTOLBZAM
+It is Square matrix: len = 2, matr = 
+1 2 
+3 4 
+Incorrect variant of print
+
+Diagol and  Down triangle
+It is Diagol Matrix: len = 3, matr: = 
+1 0 0 
+0 2 0 
+0 0 3 
+Print need POSTOLBZAM
+It is Down Triangle Matrix: len = 2, matr: = 
+1 0 
+2 3 
+Print need ODNOMERNO
+
+Square and Square
+It is Square matrix: len = 2, matr = 
+1 2 
+3 4 
+Incorrect variant of print
+It is Square matrix: len = 2, matr = 
+1 2 
+3 4 
+Incorrect variant of print
+
+Square and Down triangle
+It is Square matrix: len = 2, matr = 
+1 2 
+3 4 
+Incorrect variant of print
+It is Down Triangle Matrix: len = 2, matr: = 
+1 0 
+2 3 
+Print need ODNOMERNO
+
+Down triangle and Down triangle
+It is Down Triangle Matrix: len = 2, matr: = 
+1 0 
+2 3 
+Print need ODNOMERNO
+It is Down Triangle Matrix: len = 2, matr: = 
+1 0 
+2 3 
+Print need ODNOMERNO
+
+
+Empty container. 
+Container contains 0 elements.
+none
